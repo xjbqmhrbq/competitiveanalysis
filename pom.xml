@@ -8,7 +8,7 @@
 		<version>2.7.18-SNAPSHOT</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.gausscode</groupId>
+	<groupId>technology.cariad.app</groupId>
 	<artifactId>competitiveanalysis</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>competitiveanalysis</name>
@@ -73,7 +73,13 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.1</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
 	<dependencyManagement>
 		<dependencies>
@@ -110,7 +116,7 @@
 				<version>1.1.8</version>
 				<configuration>
 					<password>000000</password><!--加密打包之后pom.xml会被删除，不用担心在jar包里找到此密码-->
-					<packages>com.gausscode.competitiveanalysis.*</packages>
+					<packages>technology.cariad.app.competitiveanalysis.*</packages>
 				</configuration>
 				<executions>
 					<execution>

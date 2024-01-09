@@ -16,10 +16,10 @@ spring:
     name: competitive-analysis
  datasource:
    driver-class-name: com.mysql.cj.jdbc.Driver
-   url: jdbc:mysql://127.0.0.1:3306/competitive_app_final?useUnicode=true&characterEncoding=utf-8
+   url: jdbc:mysql://127.0.0.1:3306/competitive_app?useUnicode=true&characterEncoding=utf-8
    # url: jdbc:sqlserver://119.3.223.206:1433;DatabaseName=FTMS;encrypt=true;trustServerCertificate=true
    username: root
-   password: 123456
+   password: admin123
    # druid 连接池管理
    druid:
      #      filter:
