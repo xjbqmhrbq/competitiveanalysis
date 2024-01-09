@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gausscode.competitiveanalysis.mapper.AppCommentMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.gausscode.competitiveanalysis.entity.AppComment">
+        <id column="id" property="id" />
+        <result column="app_id" property="appId" />
+        <result column="version_id" property="versionId" />
+        <result column="star" property="star" />
+        <result column="user" property="user" />
+        <result column="comment_time" property="commentTime" />
+        <result column="content" property="content" />
+        <result column="source" property="source" />
+        <result column="ip_address" property="ipAddress" />
+        <result column="model" property="model" />
+    </resultMap>
+
+</mapper>

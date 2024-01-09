@@ -16,10 +16,10 @@ spring:
     name: competitive-analysis
  datasource:
    driver-class-name: com.mysql.cj.jdbc.Driver
-   url: jdbc:mysql://192.168.101.193:3306/sonic?useUnicode=true&characterEncoding=utf-8
+   url: jdbc:mysql://127.0.0.1:3306/competitive_app_final?useUnicode=true&characterEncoding=utf-8
    # url: jdbc:sqlserver://119.3.223.206:1433;DatabaseName=FTMS;encrypt=true;trustServerCertificate=true
-   username: sonic
-   password: MAIT@2023mait
+   username: root
+   password: 123456
    # druid 连接池管理
    druid:
      #      filter:
@@ -96,4 +96,4 @@ mybatis-plus:
       id-type: auto
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-    map-underscore-to-camel-case: false
+    map-underscore-to-camel-case: true
