@@ -1,73 +1,78 @@
 package com.gausscode.competitiveanalysis.core;
 
-import java.io.Serializable;
-import java.util.StringJoiner;
+import lombok.Getter;
+import lombok.ToString;
 
+import java.io.Serializable;
+
+@Getter
+@ToString
 public class ApiResponse<T> implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private Integer code;
+    private final Integer code;
 
-    private String message;
+    private final String message;
 
-    private T data;
+    private final T payload;
 
-    public ApiResponse(Integer code,String message){
+    private ApiResponse(Integer code, String message) {
+        this(code, message, null);
+    }
+
+    private ApiResponse(Integer code, String message, T payload) {
         this.code = code;
         this.message = message;
+        this.payload = payload;
     }
 
-    public ApiResponse(Integer code,String message,T data){
-        this(code,message);
-        this.data = data;
+    /**
+     * 成功不带返回参数
+     *
+     * @return ApiResponse
+     */
+    public static <T> ApiResponse<T> success() {
+        return success();
     }
 
-    public static <T> ApiResponse<T> success(){
-        return new ApiResponse<>(ResponseCode.SUCCESS.getCode(),ResponseCode.SUCCESS.getMessage());
+    /**
+     * 成功加返回参数
+     *
+     * @param payload 结果
+     * @param <T>     Class
+     * @return ApiResponse
+     */
+    public static <T> ApiResponse<T> success(T payload) {
+        return new ApiResponse<>(ResponseCode.SUCCESS.getCode(), ResponseCode.SUCCESS.getMessage(), payload);
     }
 
-    public static <T> ApiResponse<T> success(T data){
-        return new ApiResponse<>(ResponseCode.SUCCESS.getCode(),ResponseCode.SUCCESS.getMessage(),data);
+    public static <T> ApiResponse<T> fail() {
+        return fail(ResponseCode.FAILURE);
     }
 
-    public static <T> ApiResponse<T> fail(){
-        return new ApiResponse<>(ResponseCode.FAILURE.getCode(),ResponseCode.FAILURE.getMessage());
+    public static <T> ApiResponse<T> fail(ResponseCode code) {
+        return fail(code.getCode(), code.getMessage());
     }
 
-    public static <T> ApiResponse<T> fail(Integer code,String message){
-        return new ApiResponse<>(code,message);
+    public static <T> ApiResponse<T> fail(Integer code, String message) {
+        return new ApiResponse<>(code, message);
     }
 
-    public static <T> ApiResponse<T> error(){
-        return new ApiResponse<>(ResponseCode.ERROR.getCode(),ResponseCode.ERROR.getMessage());
+    public static <T> ApiResponse<T> error() {
+        return error(ResponseCode.ERROR);
     }
 
-    public void setCode(Integer code){
-        this.code = code;
-    }
-    public void setMessage(String message){
-        this.message = message;
-    }
-    public void setData(T data){
-        this.data = data;
-    }
-    public Integer getCode(){
-        return this.code;
-    }
-    public String getMessage(){
-        return this.message;
-    }
-    public T getData(){
-        return this.data;
+    public static <T> ApiResponse<T> errorWithNull() {
+        return error(ResponseCode.PARAM_ERROR_EMPTY);
     }
 
-    @Override
-    public String toString() {
-        return (new StringJoiner(", ", ApiResponse.class.getSimpleName() + "[", "]"))
-                .add("code=" + this.code)
-                .add("message='" + this.message + "'")
-                .add("data=" + this.data)
-                .toString();
+    public static <T> ApiResponse<T> error(ResponseCode code) {
+        return error(code.getCode(), code.getMessage());
     }
+
+    public static <T> ApiResponse<T> error(Integer code, String message) {
+        return new ApiResponse<>(code, message);
+    }
+
 }

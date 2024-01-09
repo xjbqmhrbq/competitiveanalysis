@@ -8,6 +8,7 @@ public enum ResponseCode {
     ERROR(500,"系统异常，请稍后重试"),
     /**参数相关的错误码：1开头**/
     PARAM_ERROR(1000,"参数异常"),
+    PARAM_ERROR_EMPTY(1001, "入参为null"),
 
     /**权限相关的错误码：2开头**/
     INVALID_TOKEN(2001,"访问令牌不合法"),
