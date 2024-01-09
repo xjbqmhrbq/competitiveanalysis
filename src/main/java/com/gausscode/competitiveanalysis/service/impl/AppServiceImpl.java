@@ -26,35 +26,26 @@ import java.util.List;
 public class AppServiceImpl extends ServiceImpl<AppMapper, App> implements AppService {
 
     @Override
-    public ResultDto add(App app) {
-        if(StringUtils.isEmpty(app.getName())){
-            return ResultUtil.error("APP名称为空");
-        }
-        return ResultUtil.success(save(app));
+    public Boolean add(App app) {
+        return save(app);
     }
 
     @Override
-    public ResultDto update(App app) {
-        if(StringUtils.isEmpty(app.getName())){
-            return ResultUtil.error("APP名称为空");
-        }
-        if(ObjectUtil.isEmpty(app.getId())){
-            return ResultUtil.error("APP主键id为空");
-        }
+    public Boolean update(App app) {
         if(ObjectUtil.isNull(query(app))){
-            return ResultUtil.error("查询不到APP");
+            return false;
         }
-        return ResultUtil.success(saveOrUpdate(app));
+        return saveOrUpdate(app);
     }
 
     @Override
-    public ResultDto delete(Integer id) {
-        return  ResultUtil.success(removeById(id));
+    public Boolean delete(Integer id) {
+        return  removeById(id);
     }
 
     @Override
-    public ResultDto appList() {
-        return ResultUtil.success(list());
+    public List<App> appList() {
+        return list();
     }
 
     private App query(App app){

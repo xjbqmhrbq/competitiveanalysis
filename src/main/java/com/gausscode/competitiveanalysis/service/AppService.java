@@ -4,6 +4,8 @@ import com.gausscode.competitiveanalysis.core.ResultDto;
 import com.gausscode.competitiveanalysis.entity.App;
 import com.baomidou.mybatisplus.extension.service.IService;
 
+import java.util.List;
+
 /**
  * <p>
  * 应用 服务类
@@ -14,12 +16,12 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface AppService extends IService<App> {
 
-    ResultDto add(App app);
+    Boolean add(App app);
 
-    ResultDto update(App app);
+    Boolean update(App app);
 
-    ResultDto delete(Integer id);
+    Boolean delete(Integer id);
 
-    ResultDto appList();
+    List<App> appList();
 
 }
