@@ -24,4 +24,5 @@ public interface AppService extends IService<App> {
 
     List<App> appList();
 
+    App query(App app);
 }

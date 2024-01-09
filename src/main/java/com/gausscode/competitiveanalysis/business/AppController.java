@@ -45,6 +45,9 @@ public class AppController {
         if(ObjectUtil.isEmpty(app.getId())){
             return ResultUtil.error("APP主键id为空");
         }
+        if(ObjectUtil.isNull(appService.query(app))){
+            return ResultUtil.error("查询不到此APP");
+        }
         return ResultUtil.success(appService.update(app));
     }
 

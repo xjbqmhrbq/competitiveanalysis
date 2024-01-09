@@ -32,9 +32,6 @@ public class AppServiceImpl extends ServiceImpl<AppMapper, App> implements AppSe
 
     @Override
     public Boolean update(App app) {
-        if(ObjectUtil.isNull(query(app))){
-            return false;
-        }
         return saveOrUpdate(app);
     }
 
@@ -48,7 +45,7 @@ public class AppServiceImpl extends ServiceImpl<AppMapper, App> implements AppSe
         return list();
     }
 
-    private App query(App app){
+    public App query(App app){
         LambdaQueryWrapper<App> wrapper = Wrappers.lambdaQuery();
         wrapper.eq(App::getId,app.getId());
         List<App> list =list(wrapper);
