@@ -19,7 +19,7 @@ import java.util.List;
  * @since 2024-01-09
  */
 @Service
-public class LabelServiceImpl extends ServiceImpl<LabelMapper, Label> implements LabelService {
+public class LabelServiceImpl extends BaseService<LabelMapper, Label> implements LabelService {
 
     @Override
     public List<Label> searchByName(String name) {
@@ -29,7 +29,7 @@ public class LabelServiceImpl extends ServiceImpl<LabelMapper, Label> implements
     }
 
     @Override
-    public Boolean remove(Integer id) {
+    public Boolean removeById(Integer id) {
         Label label = getById(id);
         if (label == null || !label.getActive()) {
             return false;

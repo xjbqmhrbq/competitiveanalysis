@@ -21,10 +21,7 @@ public class LabelController {
         if (label == null) {
             return Result.errorWithNull("label");
         }
-        if (labelService.save(label)) {
-            return Result.success(label);
-        }
-        return Result.fail();
+        return Result.success(labelService.add(label));
     }
 
     @PostMapping("/update")
@@ -32,10 +29,7 @@ public class LabelController {
         if (label == null) {
             return Result.errorWithNull("label");
         }
-        if (labelService.updateById(label)) {
-            return Result.success(label);
-        }
-        return Result.fail();
+        return Result.success(labelService.update(label));
     }
 
     @PostMapping("/remove")
@@ -43,7 +37,7 @@ public class LabelController {
         if (id == null) {
             return Result.errorWithNull("id");
         }
-        return Result.success(labelService.remove(id));
+        return Result.success(labelService.removeById(id));
     }
 
     @GetMapping("/findById")

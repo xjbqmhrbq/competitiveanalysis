@@ -15,7 +15,12 @@ import java.util.List;
  */
 public interface LabelService extends IService<Label> {
 
+    Label add(Label label);
+
+    Label update(Label label);
+
     List<Label> searchByName(String name);
 
-    Boolean remove(Integer id);
+    Boolean removeById(Integer id);
+
 }
