@@ -1,12 +1,14 @@
 package technology.cariad.app.competitiveanalysis.core.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import java.util.Date;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 /**
  * <p>
@@ -17,6 +19,7 @@ import lombok.EqualsAndHashCode;
  * @since 2024-01-09
  */
 @Data
+@ToString
 @EqualsAndHashCode(callSuper = false)
 public class Label extends Model<Label> {
 
@@ -36,7 +39,8 @@ public class Label extends Model<Label> {
     /**
      * 是否可用，用于标记删除，0表示删除
      */
-    private Boolean active;
+    @TableLogic
+    private Boolean isDelete;
 
     private Date createTime;
 

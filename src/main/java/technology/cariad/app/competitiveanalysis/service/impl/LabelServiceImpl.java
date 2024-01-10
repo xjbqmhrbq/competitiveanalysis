@@ -29,12 +29,7 @@ public class LabelServiceImpl extends BaseService<LabelMapper, Label> implements
     }
 
     @Override
-    public Boolean removeById(Integer id) {
-        Label label = getById(id);
-        if (label == null || !label.getActive()) {
-            return false;
-        }
-        label.setActive(false);
-        return updateById(label);
+    public Boolean remove(Integer id) {
+        return removeById(id);
     }
 }

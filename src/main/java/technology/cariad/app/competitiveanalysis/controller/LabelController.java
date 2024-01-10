@@ -37,7 +37,7 @@ public class LabelController {
         if (id == null) {
             return Result.errorWithNull("id");
         }
-        return Result.success(labelService.removeById(id));
+        return Result.success(labelService.remove(id));
     }
 
     @GetMapping("/findById")

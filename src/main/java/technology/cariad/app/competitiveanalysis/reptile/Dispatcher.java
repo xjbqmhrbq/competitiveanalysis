@@ -23,7 +23,12 @@ public class Dispatcher implements Runnable {
         if (reptileType == ReptileType.Unknown) {
             return false;
         }
+
         IParser parser = reptileType.buildParser(data);
+        if (parser == null) {
+            return false;
+        }
+
         EXECUTOR.submit(new Dispatcher(parser));
         return true;
     }

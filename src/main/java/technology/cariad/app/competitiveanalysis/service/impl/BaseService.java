@@ -22,10 +22,4 @@ public class BaseService<M extends BaseMapper<T>, T> extends ServiceImpl<M, T> {
         return null;
     }
 
-    public boolean removeById(Serializable id) {
-        T obj = getById(id);
-        if (obj == null) return false;
-        return SqlHelper.retBool(getBaseMapper().deleteById(id));
-    }
-
 }

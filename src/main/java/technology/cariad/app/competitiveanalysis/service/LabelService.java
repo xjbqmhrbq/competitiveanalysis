@@ -21,6 +21,6 @@ public interface LabelService extends IService<Label> {
 
     List<Label> searchByName(String name);
 
-    Boolean removeById(Integer id);
+    Boolean remove(Integer id);
 
 }
