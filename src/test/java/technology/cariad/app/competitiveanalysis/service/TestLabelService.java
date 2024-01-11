@@ -23,7 +23,7 @@ public class TestLabelService {
         System.out.println("label:" + label);
         Label label1 = labelService.getById(label.getId());
         System.out.println("label1:" + label1);
-        Boolean remove = labelService.remove(label1.getId());
+        Boolean remove = labelService.removeById(label1.getId());
         System.out.println("remove:" + remove);
     }
 

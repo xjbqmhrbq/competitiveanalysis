@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ReptileController {
 
-
     @PostMapping("/upload")
     public Result<Boolean> upload(@RequestBody ReptileInfo info) {
         if (info == null) {

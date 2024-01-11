@@ -2,7 +2,9 @@ package technology.cariad.app.competitiveanalysis.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import technology.cariad.app.competitiveanalysis.core.entity.Function;
 import technology.cariad.app.competitiveanalysis.core.entity.Label;
+import technology.cariad.app.competitiveanalysis.mapper.FunctionMapper;
 import technology.cariad.app.competitiveanalysis.mapper.LabelMapper;
 import technology.cariad.app.competitiveanalysis.service.LabelService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -19,7 +21,17 @@ import java.util.List;
  * @since 2024-01-09
  */
 @Service
-public class LabelServiceImpl extends BaseService<LabelMapper, Label> implements LabelService {
+public class LabelServiceImpl  extends ServiceImpl<LabelMapper, Label> implements LabelService {
+
+    @Override
+    public Label add(Label label) {
+        return null;
+    }
+
+    @Override
+    public Label update(Label label) {
+        return null;
+    }
 
     @Override
     public List<Label> searchByName(String name) {
@@ -28,8 +40,4 @@ public class LabelServiceImpl extends BaseService<LabelMapper, Label> implements
         return list(wrapper);
     }
 
-    @Override
-    public Boolean remove(Integer id) {
-        return removeById(id);
-    }
 }

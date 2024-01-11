@@ -1,5 +1,6 @@
 package technology.cariad.app.competitiveanalysis.controller;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import technology.cariad.app.competitiveanalysis.core.Result;
 import technology.cariad.app.competitiveanalysis.core.entity.Label;
 import technology.cariad.app.competitiveanalysis.service.LabelService;
@@ -37,7 +38,7 @@ public class LabelController {
         if (id == null) {
             return Result.errorWithNull("id");
         }
-        return Result.success(labelService.remove(id));
+        return Result.success(labelService.removeById(id));
     }
 
     @GetMapping("/findById")
@@ -59,6 +60,12 @@ public class LabelController {
     @GetMapping("/list")
     public Result<List<Label>> list() {
         return Result.success(labelService.list());
+    }
+
+    @GetMapping("/getByPage")
+    public Result<Page<Label>> getByPage(@RequestParam(name = "pageNum", defaultValue = "0") Integer pageNum,
+                                         @RequestParam(name = "pageSize", defaultValue = "10") Integer pageSize) {
+        return Result.success(labelService.getByPage(pageNum, pageSize));
     }
 
 }

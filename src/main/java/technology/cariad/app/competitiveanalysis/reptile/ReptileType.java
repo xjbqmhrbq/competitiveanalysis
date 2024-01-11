@@ -10,7 +10,6 @@ public enum ReptileType {
 
     Unknown("unknown", null),
     DefaultType("demo", DemoParser.class);
-
     public final String type;
 
     public final Class<? extends BaseParser> clazz;
